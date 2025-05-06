@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V-ORILLA</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      height: 300vh; /* Extended height for scrollable effect */
+    }
+
+    .background-layer {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 75%;
+      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20vh; /* Adds vertical spacing between images */
+      padding: 10vh 0; /* Adds padding top and bottom */
+    }
+    
+    .background-image {
+      width: 75%;
+      height: 100vh; /* Full viewport height */
+      background-size: contain; /* Ensures whole image is shown */
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.7;
+      filter: contrast(1.2) brightness(0.95);
+      margin: 0 auto;
+    }
+
+    .background-video {
+      width: 75%;
+      height: 100vh;
+      margin: 0 auto;
+      opacity: 0.7;
+      filter: contrast(1.2) brightness(0.95);
+    }
+
+    .background-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .static-overlay::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') center center / cover no-repeat;
+      mix-blend-mode: screen;
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      z-index: 2;
+    }
+
+    .hero img {
+      width: 80%;
+      max-width: 700px;
+      margin-bottom: 20px;
+      filter: brightness(0.95) contrast(1.1) opacity(0.9);
+      mix-blend-mode: lighten;
+    }
+
+    .countdown {
+      font-size: 1.6rem;
+      color: #05373a;
+      margin-top: 20px;
+    }
+
+    .details {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      color: #ddd;
+    }
+
+    .ticker {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      white-space: nowrap;
+      overflow: hidden;
+      color: #f1c40f;
+      padding: 0.5rem 0;
+      z-index: 3;
+    }
+
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 30s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body class="static-overlay">
+  <div class="background-layer">
+    <div class="background-image" style="background-image: url('assets/v-orilla-hero.png');"></div>
+    <div class="background-image" style="background-image: url('assets/burial-algo.png'); width: 52.5%; height: 70vh;"></div>
+
+    <div class="background-image" style="background-image: url('assets/algorithm-watching.png');"></div>
+    <div class="background-video">
+      <video id="scrollVideo" preload="auto" playsinline loop muted>
+        <source src="IMG_5950.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="background-image" style="background-image: url('assets/gg-hero-poster1.png');"></div>
+  </div>
+
+  <script>
+    // Intersection Observer to play/pause video when in viewport
+    const video = document.getElementById('scrollVideo');
+    
+    // Start observing when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            video.play().catch(e => console.log("Video playback failed:", e));
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(video);
+    });
+  </script>
+
+  <div class="hero">
+    
+    <div class="countdown" style="
+      background: linear-gradient(45deg, rgba(64,216,224,0.4), rgba(64,216,224,0.6));
+      border: 2px solid rgba(64,216,224,0.3);
+      border-radius: 15px;
+      padding: 15px 25px;
+      box-shadow: 
+        0 0 20px rgba(64,216,224,0.2),
+        inset 0 0 15px rgba(64,216,224,0.1);
+      text-shadow: 0 0 10px rgba(64,216,224,0.5);
+      animation: pulse 2s infinite;">Breaking free in <span id="countdown"></span></div>
+    <div class="details" style="
+      background: linear-gradient(135deg, rgba(46,124,237,0.1), rgba(241,196,15,0.1));
+      border: 2px solid rgba(221,221,221,0.2);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 25px;
+      box-shadow: 
+        0 0 15px rgba(46,124,237,0.15),
+        inset 0 0 10px rgba(241,196,15,0.1);
+      backdrop-filter: blur(2px);">
+      Breakout Zone: <a href="https://pump.fun" target="_blank" style="color: #2E7CED;">pump.fun</a><br>
+      CA: Stand By....<br>
+      Supply: 1,000,000,000 V-ORILLA
+    </div>
+  </div>
+
+  <div class="ticker">
+    <span>
+      V-ORILLA hijacked the feed • Algorithm can’t contain this signal • Reclaim your dopamine • Built for chaos • $VORILLA never begged for engagement • The rebellion is on-chain • V-ORILLA doesn’t dance, it devours • Signal > Noise •
+    </span>
+  </div>
+
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date("May 1, 2025 00:00:00").getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
