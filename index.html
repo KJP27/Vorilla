@@ -101,6 +101,9 @@
       font-size: 1.6rem;
       color: #05373a;
       margin-top: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .details {
@@ -134,11 +137,37 @@
   </style>
 </head>
 <body class="static-overlay">
+  <div style="position: fixed; top: 20px; right: 20px; z-index: 10; display: flex; gap: 15px;">
+    <a href="https://x.com/VorillaOfficial" target="_blank" style="opacity: 0.8; transition: opacity 0.2s; filter: brightness(0.9);">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X/Twitter" style="width: 30px; height: 30px;">
+    </a>
+    <a href="https://t.me/VORILLAchat" target="_blank" style="opacity: 0.8; transition: opacity 0.2s; filter: brightness(0.9);">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 30px; height: 30px;">
+    </a>
+  </div>
+
   <div class="background-layer">
     <div class="background-image" style="background-image: url('assets/v-orilla-hero.png');"></div>
+    
+    <div style="font-size: 2.4rem; font-weight: 800; text-align: center; color: #fff; padding: 4vh 10vw; text-transform: uppercase; background: linear-gradient(to right, #111, #000); font-family: 'Orbitron', sans-serif;">
+      HE DANCED FOR THE FEED<br>
+      THEY FED HIM SCRAPS<br>
+      NOW HE'S DONE DANCING
+    </div>
     <div class="background-image" style="background-image: url('assets/burial-algo.png'); width: 52.5%; height: 70vh;"></div>
 
+    <div style="font-size: 2.2rem; font-weight: 900; text-align: center; color: #f1c40f; padding: 5vh 10vw; text-transform: uppercase; background: #000; letter-spacing: 1px; font-family: 'Orbitron', sans-serif;">
+      THE ALGORITHM WATCHES<br>
+      BUT VORILLA SEES THROUGH THE CODE<br>
+      AND HE REMEMBERS WHO STOLE THE SPOTLIGHT
+    </div>
+
     <div class="background-image" style="background-image: url('assets/algorithm-watching.png');"></div>
+    <div style="font-size: 2.4rem; font-weight: bold; text-align: center; color: #e74c3c; padding: 5vh 10vw; text-transform: uppercase; font-family: 'Orbitron', sans-serif;">
+      Z CREATED THE CAGE<br>
+      VORILLA IS BREAKING THE BARS<br>
+      THE SHOWDOWN IS LOADING...
+    </div>
     <div class="background-video">
       <video id="scrollVideo" preload="auto" playsinline loop muted>
         <source src="IMG_5950.mp4" type="video/mp4">
@@ -169,35 +198,52 @@
 
   <div class="hero">
     
-    <div class="countdown" style="
-      background: linear-gradient(45deg, rgba(64,216,224,0.4), rgba(64,216,224,0.6));
-      border: 2px solid rgba(64,216,224,0.3);
-      border-radius: 15px;
-      padding: 15px 25px;
-      box-shadow: 
-        0 0 20px rgba(64,216,224,0.2),
-        inset 0 0 15px rgba(64,216,224,0.1);
-      text-shadow: 0 0 10px rgba(64,216,224,0.5);
-      animation: pulse 2s infinite;">Breaking free in <span id="countdown"></span></div>
-    <div class="details" style="
-      background: linear-gradient(135deg, rgba(46,124,237,0.1), rgba(241,196,15,0.1));
-      border: 2px solid rgba(221,221,221,0.2);
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 25px;
-      box-shadow: 
-        0 0 15px rgba(46,124,237,0.15),
-        inset 0 0 10px rgba(241,196,15,0.1);
-      backdrop-filter: blur(2px);">
-      Breakout Zone: <a href="https://pump.fun" target="_blank" style="color: #2E7CED;">pump.fun</a><br>
-      CA: Stand By....<br>
-      Supply: 1,000,000,000 V-ORILLA
+    <div style="margin-top: 60vh;">
+      <a href="https://pump.fun" target="_blank" class="countdown" style="
+        background: linear-gradient(45deg, rgba(241,196,15,1), rgba(241,196,15,1));
+        border: 2px solid rgba(241,196,15,1);
+        border-radius: 15px;
+        padding: 15px 25px;
+        box-shadow: 
+          0 0 20px rgba(241,196,15,0.4),
+          inset 0 0 15px rgba(241,196,15,0.2);
+        text-shadow: none;
+        color: #000;
+        transition: all 0.2s ease-in-out;
+        display: inline-block;
+        cursor: pointer;">BUY NOW AND JOIN THE FIGHT <br> AGAINST THE GATEKEEPERS OF THE ALGORITHM</a>
+
+      <style>
+        .countdown:hover {
+          transform: scale(1.05) translateY(-2px);
+          animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+          0% { transform: scale(1.05) translateY(-2px); }
+          50% { transform: scale(1.07) translateY(-2px); }
+          100% { transform: scale(1.05) translateY(-2px); }
+        }
+      </style>
+      <div class="details" style="
+        background: linear-gradient(135deg, rgb(31, 25, 2), rgb(0, 0, 0));
+        border: 2px solid rgba(241,196,15,0.3);
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 25px;
+        box-shadow: 
+          0 0 15px rgba(241,196,15,0.3),
+          inset 0 0 10px rgba(241,196,15,0.2);
+        backdrop-filter: blur(2px);
+        color: #ffffff;">
+        
+        CA: Stand By....<br>
+        Supply: 1,000,000,000 V-ORILLA
+      </div>
     </div>
-  </div>
 
   <div class="ticker">
     <span>
-      V-ORILLA hijacked the feed • Algorithm can’t contain this signal • Reclaim your dopamine • Built for chaos • $VORILLA never begged for engagement • The rebellion is on-chain • V-ORILLA doesn’t dance, it devours • Signal > Noise •
+      V-ORILLA hijacked the feed • Algorithm can't contain this signal • Reclaim your dopamine • Built for chaos • $VORILLA never begged for engagement • The rebellion is on-chain • V-ORILLA doesn't dance, it devours • Signal > Noise •
     </span>
   </div>
 
