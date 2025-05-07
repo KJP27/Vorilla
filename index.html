@@ -19,7 +19,7 @@
       font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
       position: relative;
-      height: 300vh; /* Extended height for scrollable effect */
+      height: 300vh;
     }
 
     .background-layer {
@@ -27,18 +27,18 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 75%;
+      width: 90%; /* Increased from 75% for mobile */
       z-index: 0;
       display: flex;
       flex-direction: column;
-      gap: 20vh; /* Adds vertical spacing between images */
-      padding: 10vh 0; /* Adds padding top and bottom */
+      gap: 15vh; /* Reduced gap for mobile */
+      padding: 8vh 0;
     }
     
     .background-image {
-      width: 75%;
-      height: 100vh; /* Full viewport height */
-      background-size: contain; /* Ensures whole image is shown */
+      width: 100%; /* Increased from 75% for mobile */
+      height: 80vh; /* Reduced height for mobile */
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       opacity: 0.7;
@@ -47,8 +47,8 @@
     }
 
     .background-video {
-      width: 75%;
-      height: 100vh;
+      width: 100%; /* Increased from 75% for mobile */
+      height: 80vh;
       margin: 0 auto;
       opacity: 0.7;
       filter: contrast(1.2) brightness(0.95);
@@ -85,30 +85,30 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 2rem;
+      padding: 1rem; /* Reduced padding for mobile */
       z-index: 2;
     }
 
     .hero img {
-      width: 80%;
+      width: 90%; /* Increased from 80% for mobile */
       max-width: 700px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       filter: brightness(0.95) contrast(1.1) opacity(0.9);
       mix-blend-mode: lighten;
     }
 
     .countdown {
-      font-size: 1.6rem;
+      font-size: clamp(1.2rem, 4vw, 1.6rem); /* Responsive font size */
       color: #05373a;
-      margin-top: 20px;
+      margin-top: 15px;
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
     }
 
     .details {
-      font-size: 1rem;
-      margin-top: 1.5rem;
+      font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
+      margin-top: 1.2rem;
       color: #ddd;
     }
 
@@ -122,6 +122,7 @@
       color: #f1c40f;
       padding: 0.5rem 0;
       z-index: 3;
+      font-size: clamp(0.8rem, 3vw, 1rem); /* Responsive font size */
     }
 
     .ticker span {
@@ -134,15 +135,45 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
+
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .background-layer {
+        width: 95%;
+        gap: 10vh;
+      }
+
+      div[style*="font-size: 2.4rem"] {
+        font-size: clamp(1.4rem, 5vw, 2.4rem) !important;
+        padding: 3vh 5vw !important;
+      }
+
+      div[style*="font-size: 2.2rem"] {
+        font-size: clamp(1.3rem, 5vw, 2.2rem) !important;
+        padding: 3vh 5vw !important;
+      }
+
+      .hero > div {
+        margin-top: 40vh !important; /* Adjusted for mobile */
+      }
+
+      .countdown {
+        padding: 12px 20px !important;
+      }
+
+      .details {
+        padding: 15px !important;
+      }
+    }
   </style>
 </head>
 <body class="static-overlay">
-  <div style="position: fixed; top: 20px; right: 20px; z-index: 10; display: flex; gap: 15px;">
+  <div style="position: fixed; top: 15px; right: 15px; z-index: 10; display: flex; gap: 12px;">
     <a href="https://x.com/VorillaOfficial" target="_blank" style="opacity: 0.8; transition: opacity 0.2s; filter: brightness(0.9);">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X/Twitter" style="width: 30px; height: 30px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X/Twitter" style="width: 25px; height: 25px;">
     </a>
     <a href="https://t.me/VORILLAchat" target="_blank" style="opacity: 0.8; transition: opacity 0.2s; filter: brightness(0.9);">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 30px; height: 30px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 25px; height: 25px;">
     </a>
   </div>
 
